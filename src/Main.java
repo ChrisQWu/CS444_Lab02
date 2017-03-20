@@ -36,9 +36,11 @@ public class Main {
     {
         String encryptedText = Constants.ENCRYPTED_TEXT;
         String modIV = "";
-        for (int i = encryptedText.length(); i > 32; i-=64) {
-            String iv = encryptedText.substring(i-32,i-16);
-            String msg = encryptedText.substring(i-16,i);
+        String iv = encryptedText.substring(encryptedText.length()-32,encryptedText.length());
+        String msg;
+        for (int i = encryptedText.length()-32; i > 32; i-=32) {
+            msg = iv;
+            iv = encryptedText.substring(i-32,i);
             modIV = byteByByte(iv,msg)+modIV;
             System.out.println("IV     : "+iv);
             System.out.println("Message: "+msg);
@@ -48,11 +50,18 @@ public class Main {
     public String byteByByte(String iv, String msg)
     {
         String modIV ="";
-        for (int i = 16, pad = 0; i>0 ; i-=2, pad++) {//byte by byte for-loop starting from the right
-            String currentByte = iv.substring(i-2, i);
-            int byteVal = hexStringtoDecimal(Constants.HEX+currentByte);
-            modIV = currentByte+modIV;
-            System.out.println(modIV);
+        for (int i = 32, pad = 1; i>0 ; i-=2, pad++) {//byte by byte for-loop starting from the right
+            String ivByte = iv.substring(i-2, i);
+            String msgByte = msg.substring(i-2, i);
+            int ivVal = hexStringtoDecimal(Constants.HEX+ivByte);
+            int msgVal = hexStringtoDecimal(Constants.HEX+msgByte);
+            for (int j = 0; j < 256; j++) {
+                if(j!=ivVal && (ivVal^j)==pad) {
+                    System.out.println("Pad: "+pad+" "+ivVal + " xor " + j + " " + (ivVal ^ j));
+                }
+            }
+            modIV = ivVal+modIV;
+//            System.out.println("String: "+ivByte+" "+ivVal);
         }
         return modIV;
     }
