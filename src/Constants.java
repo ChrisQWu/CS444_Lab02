@@ -9,4 +9,5 @@ public class Constants {
             "1aa030c5b59db937947b70abcc7a6b4a75e0f1bfb0c82330e4395951f910c7131ebe";
     public static final int NUM_BLOCKS = 10;
     public static final int ID = 32;
+    public static final String HEX = "0x";//concatenate this with an int to convert to a hex string
 }
