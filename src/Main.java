@@ -34,7 +34,8 @@ public class Main {
         String modIV = "";
         String iv;
         String msg;
-        for (int i=1; i < Constants.ENCRYPTED_TEXT.length;i++) {
+//        for (int i=1; i < Constants.ENCRYPTED_TEXT.length;i++) {
+        for (int i=1; i < 2;i++) {
             iv = Constants.ENCRYPTED_TEXT[i-1];
             msg = Constants.ENCRYPTED_TEXT[i];
             modIV = byteByByte(iv,msg)+modIV;
@@ -52,6 +53,7 @@ public class Main {
             for (int j = 0; j < 256; j++) {//find the proper R value
                 String tempIV = iv.substring(0,i-2) + decimaltoHexString(j) + padModify(modIV);
                 if(CommandLine.client(tempIV+msg)) {
+                    System.out.println("Adding this to modIV: "+decimaltoHexString(j));
                     modIV = decimaltoHexString(j) + modIV;
                     break;
                 }
