@@ -84,7 +84,7 @@ public class Main {
     {
         if(modIV.isEmpty())return "";
         String padIV = "";
-        int targetPad = modIV.length()/2;
+        int targetPad = modIV.length()/2 + 1;
         for (int i = modIV.length(), pad = 1; i > 0; i-=2, pad++) {
             int tempByte = hexStringtoDecimal(Constants.HEX+modIV.substring(i-2,i));
             tempByte ^= pad ^ targetPad;
