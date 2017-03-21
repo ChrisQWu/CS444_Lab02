@@ -49,7 +49,6 @@ public class Main {
     {
         String modIV ="";
         for (int i = 32, pad = 1; i>0 ; i-=2, pad++) {//byte by byte for-loop starting from the right
-            String ivByte = iv.substring(i-2, i);
             for (int j = 0; j < 256; j++) {//find the proper R value
                 String tempIV = iv.substring(0,i-2) + decimaltoHexString(j) + padModify(modIV);
                 if(CommandLine.client(tempIV+msg)) {
@@ -85,7 +84,7 @@ public class Main {
         if(modIV.isEmpty())return "";
         String padIV = "";
         int targetPad = modIV.length()/2;
-        for (int i = modIV.length(), pad = 1; i > 2; i-=2, pad++) {
+        for (int i = modIV.length(), pad = 1; i > 0; i-=2, pad++) {
             int tempByte = hexStringtoDecimal(Constants.HEX+modIV.substring(i-2,i));
             tempByte ^= pad ^ targetPad;
             padIV = decimaltoHexString(tempByte) + padIV;
