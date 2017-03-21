@@ -26,7 +26,8 @@ public class Main {
     }
 
     private String decimaltoHexString(int mask) {
-        return Integer.toHexString(mask);
+        String temp = Integer.toHexString(mask);
+        return temp.length()==1?"0"+temp:temp;
     }
 
     private void blockByBlock()
@@ -51,6 +52,8 @@ public class Main {
         for (int i = 32, pad = 1; i>0 ; i-=2, pad++) {//byte by byte for-loop starting from the right
             for (int j = 0; j < 256; j++) {//find the proper R value
                 String tempIV = iv.substring(0,i-2) + decimaltoHexString(j) + padModify(modIV);
+                System.out.println("IV  : " + iv);
+                System.out.println("Temp: "+tempIV);
                 if(CommandLine.client(tempIV+msg)) {
                     System.out.println("Adding this to modIV: "+decimaltoHexString(j));
                     modIV = decimaltoHexString(j) + modIV;
