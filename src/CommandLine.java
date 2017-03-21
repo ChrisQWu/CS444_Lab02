@@ -6,8 +6,7 @@ import java.io.InputStreamReader;
  * Created by c on 2/23/2017.
  */
 public class CommandLine {
-//    private static final String Command = "python client.py -ip 64.106.46.58 -p 10032 -b ";
-    private static final String Command = "py client.py -ip 64.106.46.58 -p 10032 -b ";
+    private static final String Command = "python client.py -ip 64.106.46.58 -p 10032 -b ";
     private static final String id = " -id "+Constants.ID;
     /**
      * Calls pmars and get the warrior's fitness score
