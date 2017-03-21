@@ -38,7 +38,7 @@ public class CommandLine {
 //                System.out.println(s);
                 if(s.equals("Received: \"Message decrypted successfully  \""))
                 {
-                    System.out.println("Viable!!!: "+encrypted);
+//                    System.out.println("Viable!!!: "+encrypted);
                     viable = true;
                 }
             }

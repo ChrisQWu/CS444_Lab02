@@ -12,8 +12,11 @@ public class Constants {
                     "05dadaac5590a524701e11e1dc220048" ,
                     "be18c64d4461168ac2ece6fbca35641f" ,
                     "68ba8f0e20419c18be4947fa84371aa0" ,
-                    "30c5b59db937947b70abcc7a6b4a75e0" ,
-                    "f1bfb0c82330e4395951f910c7131ebe"};
+                    "30c5b59db9" +
+                            "37947b70abcc7a6b4a75e0" ,
+                    "f1bfb0c823"+
+                            "30e4395951f910c7131ebe"
+    };
     public static final int NUM_BLOCKS = 10;
     public static final int ID = 32;
     public static final String HEX = "0x";//concatenate this with an int to convert to a hex string
