@@ -6,7 +6,8 @@ import java.io.InputStreamReader;
  * Created by c on 2/23/2017.
  */
 public class CommandLine {
-    private static final String Command = "python client.py -ip 64.106.46.58 -p 10032 -b ";
+//    private static final String Command = "python client.py -ip 64.106.46.58 -p 10032 -b ";
+    private static final String Command = "py client.py -ip 64.106.46.58 -p 10032 -b ";
     private static final String id = " -id "+Constants.ID;
     /**
      * Calls pmars and get the warrior's fitness score
@@ -34,10 +35,12 @@ public class CommandLine {
 //            }
 
             // read any errors from the attempted command
-//            System.out.println("Here is the standard error of the command (if any):\n");
+            System.out.println("Here is the standard error of the command (if any):\n");
             while ((s = stdError.readLine()) != null) {
+                System.out.println(s);
                 if(s.contains("Message decrypted successfully"))
                 {
+
                     viable = true;
                 }
             }
