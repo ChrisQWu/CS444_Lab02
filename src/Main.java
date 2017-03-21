@@ -49,7 +49,7 @@ public class Main {
     private String byteByByte(String iv, String msg)
     {
         String modIV ="";
-        for (int i = 32, pad = 1; i>0 ; i-=2, pad++) {//byte by byte for-loop starting from the right
+        for (int i = 32; i>32 ; i-=2) {//byte by byte for-loop starting from the right
             for (int j = 0; j < 256; j++) {//find the proper R value
                 String tempIV = iv.substring(0,i-2) + decimaltoHexString(j) + padModify(modIV);
                 System.out.println("IV  : " + iv);
@@ -60,8 +60,6 @@ public class Main {
                     break;
                 }
             }
-
-//            System.out.println("String: "+ivByte+" "+ivVal);
         }
         return modIV;
     }

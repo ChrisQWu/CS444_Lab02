@@ -15,7 +15,6 @@ public class CommandLine {
      */
     public static boolean client(String encrypted) {
         String send = Command+encrypted+id;
-        String line;
         boolean viable = false;
         try {
             // create a process and execute
@@ -39,6 +38,7 @@ public class CommandLine {
                 System.out.println(s);
                 if(s.contains("Message decrypted successfully"))
                 {
+                    System.out.println("Viable!!!: "+encrypted);
                     viable = true;
                 }
             }
