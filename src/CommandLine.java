@@ -36,7 +36,7 @@ public class CommandLine {
             // read any errors from the attempted command
 //            System.out.println("Here is the standard error of the command (if any):\n");
             while ((s = stdError.readLine()) != null) {
-//                System.out.println(s);
+                System.out.println(s);
                 if(s.contains("Message decrypted successfully"))
                 {
                     viable = true;
